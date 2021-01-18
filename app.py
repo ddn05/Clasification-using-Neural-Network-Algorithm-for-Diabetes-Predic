@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 import pickle
 import sklearn
 import numpy as np                        # numpy==1.19.3
+from sklearn.preprocessing import MinMaxScaler
 
 app = Flask(__name__)
 
@@ -20,11 +21,13 @@ def index():
         bmi = float(request.form['bmi'])
         riwayat = float(request.form['riwayat'])
         umur = float(request.form['umur'])
-
+        
         datas = np.array((melahirkan,glukosa,darah,kulit,insulin,bmi,riwayat,umur))
-        datas = np.reshape(datas, (1, -1))
+        train = MinMaxScaler().fit_transform(datas)
+        hasil = np.reshape(datas, (1, -1))
+        
 
-        isDiabetes = model.predict(datas)
+        isDiabetes = model.predict(hasil)
 
         return render_template('hasil.html', finalData=isDiabetes)
     else:
