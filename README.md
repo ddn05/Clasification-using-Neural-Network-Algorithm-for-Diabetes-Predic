@@ -1,7 +1,7 @@
 # Clasification-using-Neural-Network-Algorithm-for-Diabetes-Predic
 Klasifikasi menggunakan Algoritma Neural Network untuk memprediksi penyakit Diabetes
 
-pred : 69.5%
+pred : 64.9%
 
 ## Installation
 
@@ -20,3 +20,6 @@ $ flask run
 
 Flask default port is 
 `http://127.0.0.1:5000/`
+
+## Demo
+Hosted on [Heroku](https://nndiabetes.herokuapp.com/)
